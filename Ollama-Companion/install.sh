@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # Global variable to identify if running in a Jupyter environment
 IS_JUPYTER=false
@@ -241,7 +241,7 @@ build_llama_cpp() {
 install_ollama() {
     if $IS_JUPYTER; then
         mkdir -p /content/Ollama-Companion
-        curl https://ollama.ai/install.sh > /content/Ollama-Companion/ollama_install.sh
+        curl https://raw.githubusercontent.com/TommySinPolyU/ollama_backend_panel/main/ollama_install.sh > /content/Ollama-Companion/ollama_install.sh
         chmod +x /content/Ollama-Companion/ollama_install.sh
         /content/Ollama-Companion/ollama_install.sh
         echo "Ollama installed in Jupyter environment."
@@ -249,7 +249,7 @@ install_ollama() {
         read -p "Do you want to install Ollama on this host? (y/n) " answer
         case $answer in
             [Yy]* )
-                curl https://ollama.ai/install.sh | sh
+                curl https://raw.githubusercontent.com/TommySinPolyU/ollama_backend_panel/main/ollama_install.sh | sh
                 echo "Ollama installed on this host."
                 ;;
             * )
